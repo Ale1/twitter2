@@ -9,9 +9,6 @@
   %>
   <% if @access_token %>
     <div>
-      <p>
-        <strong>token:</strong> <%= @access_token.token %><br>
-        <strong>secret:</strong> <%= @access_token.secret %><br>
       </p>
       <p>
         <button><a href="/sign_out">Sign Out</a></button>
@@ -20,5 +17,13 @@
   <% else %>
     <button><a href="/sign_in">Sign In with Twitter</a></button>
   <% end %>
-  
+  <br><br>
+<% if session[:user_id] %>
+<form action='/tweet' method='POST'>
+<input type='text' name="mytweet">
+<input type='submit' value="Tweet this!">
+</form>
+<% end %>
+
+
 </div>
